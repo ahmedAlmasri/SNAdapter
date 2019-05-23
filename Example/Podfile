@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SNAdapter_Example' do
+  pod 'SNAdapter', :path => '../'
+
+  target 'SNAdapter_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
