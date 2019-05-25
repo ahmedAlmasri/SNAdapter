@@ -54,6 +54,9 @@ class ViewController: UIViewController {
         case .pagingTableView:
             let pagingController = PagingController()
             self.navigationController?.pushViewController(pagingController, animated: true)
+        case .delegateTableView:
+            let actionDelegateController = storyboard?.instantiateViewController(withIdentifier: "ActionDelegateController")
+            self.navigationController?.pushViewController(actionDelegateController!, animated: true)
 
         @unknown default:
             break
