@@ -1,0 +1,6 @@
+framework module SNAdapter {
+  umbrella header "SNAdapter-umbrella.h"
+
+  export *
+  module * { export * }
+}

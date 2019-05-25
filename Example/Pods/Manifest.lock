@@ -1,0 +1,16 @@
+PODS:
+  - SNAdapter (0.1.0)
+
+DEPENDENCIES:
+  - SNAdapter (from `../`)
+
+EXTERNAL SOURCES:
+  SNAdapter:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SNAdapter: 112298f9982bf65c2b771657f27db2d9f8140c60
+
+PODFILE CHECKSUM: b599bc66b90f091996f47e7066bed2dcee0f31e7
+
+COCOAPODS: 1.5.3
