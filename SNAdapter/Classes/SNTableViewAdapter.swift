@@ -14,7 +14,7 @@ open class SNTableViewHeaderConfig {
     var model: [SNCellableModel]
     weak var delegate: SNCellableDelegate?
     
-    init(cell: SNCellable.Type, heightHeader: CGFloat, model: [SNCellableModel], delegate: SNCellableDelegate? = nil) {
+   public init(cell: SNCellable.Type, heightHeader: CGFloat, model: [SNCellableModel], delegate: SNCellableDelegate? = nil) {
         self.cell = cell
         self.heightHeader = heightHeader
         self.model = model
@@ -113,7 +113,7 @@ open class SNTableViewSection<Model: SNCellableModel, Cell>: SNConfigurableSecti
     private var items: [Model]
     weak public var delegate: SNCellableDelegate?
     public var didSelect: ModelCellClosure?
-    public var loadMore: LoadMoreClosure?
+    public var didLoadMore: LoadMoreClosure?
     
     public var count: Int {
         return items.count
@@ -124,23 +124,23 @@ open class SNTableViewSection<Model: SNCellableModel, Cell>: SNConfigurableSecti
         return items
     }
     
-   public init(items: [Model], delegate: SNCellableDelegate? = nil, isLastPage: Bool = true) {
+   public init(items: [Model], delegate: SNCellableDelegate? = nil, withPaging: Bool = false) {
         
         self.items = items
         self.identifier =  Cell.identifier == nil ? "\(Cell.self)" : Cell.identifier!
         self.delegate = delegate
-        self.isLastPage = isLastPage
+        self.isLastPage = !withPaging
     }
     
     public func loadMoreData() {
-        loadMore?()
+        didLoadMore?()
     }
     
     public func selected(at indexPath: IndexPath) {
         let model = items[indexPath.row]
         didSelect?(model, indexPath)
     }
-    func updateData(_ items: [Model] ) {
+   public func updateData(_ items: [Model] ) {
         self.items = items
     }
     func setIsLastPage(_ isLastPage: Bool) {
