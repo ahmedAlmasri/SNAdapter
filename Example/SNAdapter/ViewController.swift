@@ -12,9 +12,11 @@ import SNAdapter
 class ViewController: UIViewController {
 
     @IBOutlet weak var basicTableView: UITableView!
+    
     var basicSection: SNTableViewSection<BasicModel, BasicCell>!
     var basicAdapter: SNTableViewAdapter!
     
+    private var dummyList =  [BasicModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSection()
@@ -22,16 +24,27 @@ class ViewController: UIViewController {
 
     private func setupSection() {
         
-        basicSection = SNTableViewSection<BasicModel, BasicCell>(items: getDummyData())
+        basicSection = SNTableViewSection<BasicModel, BasicCell>(items: getDummyData(), withPaging: true)
         
         basicSection.didSelect = { [weak self] model, indexPath in 
             DispatchQueue.main.async {
                 
-                let alert = UIAlertController(title: "Did select", message: "Selected Item \(model.title) \n at index \(indexPath.row)", preferredStyle: .alert)
-                alert.addAction( UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self?.present(alert, animated: true, completion: nil)   
+                let sectionController = SectionController()
+                
+                self?.navigationController?.pushViewController(sectionController, animated: true)
+//                
+//                let alert = UIAlertController(title: "Did select", message: "Selected Item \(model.title) \n at index \(indexPath.row)", preferredStyle: .alert)
+//                alert.addAction( UIAlertAction(title: "Ok", style: .default, handler: nil))
+//                self?.present(alert, animated: true, completion: nil)   
             }
             
+            
+        }
+        
+        basicSection.didLoadMore = {
+            
+            print("start Load more data ")
+            self.loadMoreDummyData()
         }
         
         basicAdapter = SNTableViewAdapter(sections: [basicSection])
@@ -39,8 +52,20 @@ class ViewController: UIViewController {
     }
 
    private func getDummyData() -> [BasicModel] {
-   
-    return [BasicModel(title: "Sunday"), BasicModel(title: "Monday"), BasicModel(title: "Tuesday"), BasicModel(title: "Wednesday"), BasicModel(title: "Thursday"), BasicModel(title: "Friday"), BasicModel(title: "Saturday")]
+    for i in 1...10 {
+        dummyList.append(BasicModel(title: "Item #\(i)"))
+    }
+    return dummyList
+    }
+    
+    private func loadMoreDummyData() {
+        
+        for i in 1...10 {
+            dummyList.append(BasicModel(title: "Item #\(i)"))
+        }
+        
+        basicSection.updateData(dummyList)
+        basicTableView.reloadData()
     }
 }
 

@@ -9,8 +9,17 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## Using
 
+```
+import SNAdapter
+
+```
+
+## Requirements
+* Swift 4.2+
+* Xcode 10.0+
+* iOS 11.0+
 ## Installation
 
 SNAdapter is available through [CocoaPods](https://cocoapods.org). To install
