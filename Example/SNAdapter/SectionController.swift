@@ -18,6 +18,7 @@ class SectionController: UIViewController {
     var dummyDataList = [SectionModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.title = "Sections TableView"
         sectionsTableView = UITableView(frame: self.view.bounds)
         sectionsTableView.register(BasicCell.self, forCellReuseIdentifier: "\(BasicCell.self)")
               sectionsTableView.register(SectionHeaderCell.self, forCellReuseIdentifier: "\(SectionHeaderCell.self)")
