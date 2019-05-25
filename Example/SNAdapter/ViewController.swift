@@ -9,6 +9,15 @@
 import UIKit
 import SNAdapter
 
+enum Actions: Int {
+    case sectionTableView
+    case pagingTableView
+    case delegateTableView
+    case sectionCollectionView
+    case pagingCollectionView
+    case delegateCollectionView
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var basicTableView: UITableView!
@@ -16,7 +25,6 @@ class ViewController: UIViewController {
     var basicSection: SNTableViewSection<BasicModel, BasicCell>!
     var basicAdapter: SNTableViewAdapter!
     
-    private var dummyList =  [BasicModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSection()
@@ -24,48 +32,39 @@ class ViewController: UIViewController {
 
     private func setupSection() {
         
-        basicSection = SNTableViewSection<BasicModel, BasicCell>(items: getDummyData(), withPaging: true)
+        basicSection = SNTableViewSection<BasicModel, BasicCell>(items: getData())
         
-        basicSection.didSelect = { [weak self] model, indexPath in 
-            DispatchQueue.main.async {
-                
-                let sectionController = SectionController()
-                
-                self?.navigationController?.pushViewController(sectionController, animated: true)
-//                
-//                let alert = UIAlertController(title: "Did select", message: "Selected Item \(model.title) \n at index \(indexPath.row)", preferredStyle: .alert)
-//                alert.addAction( UIAlertAction(title: "Ok", style: .default, handler: nil))
-//                self?.present(alert, animated: true, completion: nil)   
-            }
+        basicSection.didSelect = { [weak self] _, indexPath in 
+            self?.didSelect(at: indexPath)    
             
-            
-        }
-        
-        basicSection.didLoadMore = {
-            
-            print("start Load more data ")
-            self.loadMoreDummyData()
         }
         
         basicAdapter = SNTableViewAdapter(sections: [basicSection])
         basicTableView.setAdapter(basicAdapter)
     }
+    
+    private func didSelect(at indexPath: IndexPath) {
+        guard let action = Actions(rawValue: indexPath.row) else { return }
+        
+        switch action {
+      
+        case .sectionTableView:
+            let sectionController = SectionController()
+           self.navigationController?.pushViewController(sectionController, animated: true)
+        case .pagingTableView:
+            let pagingController = PagingController()
+            self.navigationController?.pushViewController(pagingController, animated: true)
 
-   private func getDummyData() -> [BasicModel] {
-    for i in 1...10 {
-        dummyList.append(BasicModel(title: "Item #\(i)"))
+        @unknown default:
+            break
+        }
     }
-    return dummyList
+
+   private func getData() -> [BasicModel] {
+
+    return [BasicModel(title: "Sections TableView"), BasicModel(title: "Paging TableView"), BasicModel(title: "Action delegate TableView"), BasicModel(title: "Header CollectionView"), BasicModel(title: "Paging CollectionView"), BasicModel(title: "Action delegate CollectionView")]
     }
     
-    private func loadMoreDummyData() {
-        
-        for i in 1...10 {
-            dummyList.append(BasicModel(title: "Item #\(i)"))
-        }
-        
-        basicSection.updateData(dummyList)
-        basicTableView.reloadData()
-    }
+ 
 }
 
