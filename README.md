@@ -11,14 +11,15 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Using
 
-# TableView 
-
 **Step 1**: Import the `SNAdapter` module in swift.
 
 ```swift
 import SNAdapter
 ```
-**Step 2**:  declare new class or struct  inherent form `SNCellableModel`
+# TableView 
+
+
+**Step 1**:  declare new class or struct  inherent form `SNCellableModel`
 
 ```swift
 
@@ -29,7 +30,7 @@ struct MyModel: SNCellableModel {
 
 ```
 
-**Step 3**:  declare new `UITableViewCell`  inherent form `SNCellable`
+**Step 2**:  declare new `UITableViewCell`  inherent form `SNCellable`
 
 ```swift
 
@@ -44,13 +45,13 @@ class MyCell: UITableViewCell, SNCellable {
 }
 
 ```
-**Step 4**: Take a reference to `SNTableViewSection`  and `SNTableViewAdapter` into your controller.
+**Step 3**: Take a reference to `SNTableViewSection`  and `SNTableViewAdapter` into your controller.
 
 ```swift
  private var mySection: SNTableViewSection<MyModel, MyCell>!
  private var myAdapter: SNTableViewAdapter!
 ```
-**Step 3**: Initialize the `SNTableViewSection`  and `SNTableViewAdapter` in your viewDidLoad .
+**Step 4**: Initialize the `SNTableViewSection`  and `SNTableViewAdapter` in your viewDidLoad .
 
 ```swift
 override func viewDidLoad() {
