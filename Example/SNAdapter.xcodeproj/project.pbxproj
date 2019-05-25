@@ -13,6 +13,8 @@
 		0483F4E82299BD5E00F2E90B /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4E72299BD5E00F2E90B /* SectionModel.swift */; };
 		0483F4EA2299BD7100F2E90B /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4E92299BD7100F2E90B /* SectionHeaderCell.swift */; };
 		0483F4EC2299BDC500F2E90B /* PagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4EB2299BDC500F2E90B /* PagingController.swift */; };
+		0483F4EF2299DC3A00F2E90B /* ActionDelegateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4EE2299DC3A00F2E90B /* ActionDelegateController.swift */; };
+		0483F4F12299DCFD00F2E90B /* ActionDelegateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4F02299DCFD00F2E90B /* ActionDelegateCell.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		0483F4E72299BD5E00F2E90B /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		0483F4E92299BD7100F2E90B /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
 		0483F4EB2299BDC500F2E90B /* PagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingController.swift; sourceTree = "<group>"; };
+		0483F4EE2299DC3A00F2E90B /* ActionDelegateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDelegateController.swift; sourceTree = "<group>"; };
+		0483F4F02299DCFD00F2E90B /* ActionDelegateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDelegateCell.swift; sourceTree = "<group>"; };
 		4AEF288FCBD84CDDEDCB61F0 /* Pods-SNAdapter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNAdapter_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNAdapter_Example/Pods-SNAdapter_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4C2373ECF90057050B089B01 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SNAdapter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNAdapter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +133,15 @@
 			name = Paging;
 			sourceTree = "<group>";
 		};
+		0483F4ED2299DC1A00F2E90B /* ActionDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0483F4EE2299DC3A00F2E90B /* ActionDelegateController.swift */,
+				0483F4F02299DCFD00F2E90B /* ActionDelegateCell.swift */,
+			);
+			name = ActionDelegate;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +166,7 @@
 		607FACD21AFB9204008FA782 /* Example for SNAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				0483F4ED2299DC1A00F2E90B /* ActionDelegate */,
 				0483F4E62299BD4500F2E90B /* Paging */,
 				0483F4E32299804E00F2E90B /* Sections */,
 				0483F4DE2298BD5100F2E90B /* Basic */,
@@ -379,8 +393,10 @@
 			files = (
 				0483F4E52299807600F2E90B /* SectionController.swift in Sources */,
 				0483F4E22298BD7A00F2E90B /* BasicCell.swift in Sources */,
+				0483F4F12299DCFD00F2E90B /* ActionDelegateCell.swift in Sources */,
 				0483F4EA2299BD7100F2E90B /* SectionHeaderCell.swift in Sources */,
 				0483F4EC2299BDC500F2E90B /* PagingController.swift in Sources */,
+				0483F4EF2299DC3A00F2E90B /* ActionDelegateController.swift in Sources */,
 				0483F4E02298BD6500F2E90B /* BasicModel.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

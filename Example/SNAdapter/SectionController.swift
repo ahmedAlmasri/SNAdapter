@@ -13,9 +13,11 @@ import SNAdapter
 class SectionController: UIViewController {
     
     var sectionsTableView: UITableView!
-    var basicSection = [SNTableViewSection<BasicModel, BasicCell>]()
-    var basicAdapter: SNTableViewAdapter!
+    var sections = [SNTableViewSection<BasicModel, BasicCell>]()
+    var sectionAdapter: SNTableViewAdapter!
+    
     var dummyDataList = [SectionModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          self.title = "Sections TableView"
@@ -32,15 +34,17 @@ class SectionController: UIViewController {
            
             let section = SNTableViewSection<BasicModel, BasicCell>(items: section.list)
            
-            basicSection.append(section)
+            sections.append(section)
         }
     
         let headerConfig = SNTableViewHeaderConfig(cell: SectionHeaderCell.self, heightHeader: 60, model: getDummySectionData())
-     basicAdapter = SNTableViewAdapter(sections: basicSection, tableViewHeaderConfig: headerConfig)
         
-        sectionsTableView.setAdapter(basicAdapter)
+     sectionAdapter = SNTableViewAdapter(sections: sections, tableViewHeaderConfig: headerConfig)
+        
+        sectionsTableView.setAdapter(sectionAdapter)
     
     }
+    
     private func getDummySectionData() -> [SectionModel] {
         
         for i in 0...10 {
