@@ -1,4 +1,4 @@
-# SNAdapter
+<img src="https://github.com/ahmedalmasri/SNAdapter/blob/master/images/Banner.png?raw=true"></img>
 
 [![CI Status](https://img.shields.io/travis/ahmedAlmasri/SNAdapter.svg?style=flat)](https://travis-ci.org/ahmedAlmasri/SNAdapter)
 [![Version](https://img.shields.io/cocoapods/v/SNAdapter.svg?style=flat)](https://cocoapods.org/pods/SNAdapter)
@@ -11,9 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Using
 
-```
+```swift
 import SNAdapter
-
 ```
 
 ## Requirements
