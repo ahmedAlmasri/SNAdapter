@@ -80,6 +80,10 @@ return [MyModel(title: "Item 1"), MyModel(title: "Item 2")]
 }
 
 ```
+## More Example 
+* [Pagination (Load More) Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/PagingController.swift)
+* [Sections Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/SectionController.swift)
+* [Actions Delegate Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/ActionDelegateController.swift)
 
 ## Requirements
 * Swift 4.2+
