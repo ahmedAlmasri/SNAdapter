@@ -17,7 +17,7 @@
 		0483F4F12299DCFD00F2E90B /* ActionDelegateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4F02299DCFD00F2E90B /* ActionDelegateCell.swift */; };
 		0483F4FF22A0743B00F2E90B /* BasicCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4FE22A0743B00F2E90B /* BasicCollectionController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
+		607FACD81AFB9204008FA782 /* BasicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* BasicController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -51,7 +51,7 @@
 		607FACD01AFB9204008FA782 /* SNAdapter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNAdapter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* BasicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicController.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -110,41 +110,8 @@
 		0483F4DE2298BD5100F2E90B /* Basic */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				0483F4DF2298BD6500F2E90B /* BasicModel.swift */,
-				0483F4E12298BD7A00F2E90B /* BasicCell.swift */,
 			);
 			name = Basic;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		0483F4E32299804E00F2E90B /* Sections */ = {
-			isa = PBXGroup;
-			children = (
-				0483F4E42299807600F2E90B /* SectionController.swift */,
-				0483F4E72299BD5E00F2E90B /* SectionModel.swift */,
-				0483F4E92299BD7100F2E90B /* SectionHeaderCell.swift */,
-			);
-			name = Sections;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		0483F4E62299BD4500F2E90B /* Paging */ = {
-			isa = PBXGroup;
-			children = (
-				0483F4EB2299BDC500F2E90B /* PagingController.swift */,
-			);
-			name = Paging;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		0483F4ED2299DC1A00F2E90B /* ActionDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				0483F4EE2299DC3A00F2E90B /* ActionDelegateController.swift */,
-				0483F4F02299DCFD00F2E90B /* ActionDelegateCell.swift */,
-			);
-			name = ActionDelegate;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -159,9 +126,10 @@
 		0483F4FC22A0737700F2E90B /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				0483F4ED2299DC1A00F2E90B /* ActionDelegate */,
-				0483F4E62299BD4500F2E90B /* Paging */,
-				0483F4E32299804E00F2E90B /* Sections */,
+				0483F50322A0818100F2E90B /* Basic */,
+				0483F50222A0816900F2E90B /* Sections */,
+				0483F50122A0815D00F2E90B /* Paging */,
+				0483F50022A0814700F2E90B /* ActionDelegate */,
 				0483F4DE2298BD5100F2E90B /* Basic */,
 			);
 			path = TableView;
@@ -171,6 +139,43 @@
 			isa = PBXGroup;
 			children = (
 				0483F4FE22A0743B00F2E90B /* BasicCollectionController.swift */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		0483F50022A0814700F2E90B /* ActionDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0483F4EE2299DC3A00F2E90B /* ActionDelegateController.swift */,
+				0483F4F02299DCFD00F2E90B /* ActionDelegateCell.swift */,
+			);
+			path = ActionDelegate;
+			sourceTree = "<group>";
+		};
+		0483F50122A0815D00F2E90B /* Paging */ = {
+			isa = PBXGroup;
+			children = (
+				0483F4EB2299BDC500F2E90B /* PagingController.swift */,
+			);
+			path = Paging;
+			sourceTree = "<group>";
+		};
+		0483F50222A0816900F2E90B /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				0483F4E42299807600F2E90B /* SectionController.swift */,
+				0483F4E72299BD5E00F2E90B /* SectionModel.swift */,
+				0483F4E92299BD7100F2E90B /* SectionHeaderCell.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		0483F50322A0818100F2E90B /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD71AFB9204008FA782 /* BasicController.swift */,
+				0483F4DF2298BD6500F2E90B /* BasicModel.swift */,
+				0483F4E12298BD7A00F2E90B /* BasicCell.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -430,7 +435,7 @@
 				0483F4EC2299BDC500F2E90B /* PagingController.swift in Sources */,
 				0483F4EF2299DC3A00F2E90B /* ActionDelegateController.swift in Sources */,
 				0483F4E02298BD6500F2E90B /* BasicModel.swift in Sources */,
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				607FACD81AFB9204008FA782 /* BasicController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				0483F4E82299BD5E00F2E90B /* SectionModel.swift in Sources */,
 			);
