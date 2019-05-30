@@ -10,12 +10,6 @@ import Foundation
 import UIKit
 import SNAdapter
 
-class HeaderCell: UICollectionReusableView, SNCellable {
-    func configure(_ object: SNCellableModel?) {
-    }
-    
-}
-
 class HeaderCollectionController: UIViewController {
     
     @IBOutlet weak var headerCollectionView: UICollectionView!
