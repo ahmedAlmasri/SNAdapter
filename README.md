@@ -143,6 +143,13 @@ return [MyModel(title: "Item 1"), MyModel(title: "Item 2")]
 }
 
 ```
+## More Example 
+
+* [Pagination (Load More) Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/TableView/Paging)
+* [Header  Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/CollectionView/Header)
+* [Actions Delegate Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/TableView/ActionDelegate)
+
+
 ## Requirements
 * Swift 4.2+
 * Xcode 10.0+

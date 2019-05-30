@@ -9,16 +9,6 @@
 import Foundation
 import UIKit
 import SNAdapter
-class BasicCollectionCell: UICollectionViewCell, SNCellable {
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    
-    func configure(_ object: SNCellableModel?) {
-        guard let basicModel = object as? BasicModel else { return }
-         self.backgroundColor = UIColor.blue
-        titleLabel.text = basicModel.title
-    }
-}
 
 class BasicCollectionController: UIViewController {
     
