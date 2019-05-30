@@ -18,6 +18,7 @@
 		0483F4FF22A0743B00F2E90B /* BasicCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4FE22A0743B00F2E90B /* BasicCollectionController.swift */; };
 		0483F50722A0832F00F2E90B /* HeaderCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F50622A0832F00F2E90B /* HeaderCollectionController.swift */; };
 		0483F50922A0837A00F2E90B /* BasicCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F50822A0837A00F2E90B /* BasicCollectionCell.swift */; };
+		0483F50B22A08DD300F2E90B /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F50A22A08DD300F2E90B /* HeaderCell.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* BasicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* BasicController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		0483F4FE22A0743B00F2E90B /* BasicCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCollectionController.swift; sourceTree = "<group>"; };
 		0483F50622A0832F00F2E90B /* HeaderCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionController.swift; sourceTree = "<group>"; };
 		0483F50822A0837A00F2E90B /* BasicCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCollectionCell.swift; sourceTree = "<group>"; };
+		0483F50A22A08DD300F2E90B /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		4AEF288FCBD84CDDEDCB61F0 /* Pods-SNAdapter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNAdapter_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNAdapter_Example/Pods-SNAdapter_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4C2373ECF90057050B089B01 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SNAdapter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNAdapter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				0483F50622A0832F00F2E90B /* HeaderCollectionController.swift */,
+				0483F50A22A08DD300F2E90B /* HeaderCell.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -309,10 +312,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 32M9XG9335;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 32M9XG9335;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -438,6 +443,7 @@
 				0483F4E52299807600F2E90B /* SectionController.swift in Sources */,
 				0483F4E22298BD7A00F2E90B /* BasicCell.swift in Sources */,
 				0483F4F12299DCFD00F2E90B /* ActionDelegateCell.swift in Sources */,
+				0483F50B22A08DD300F2E90B /* HeaderCell.swift in Sources */,
 				0483F4EA2299BD7100F2E90B /* SectionHeaderCell.swift in Sources */,
 				0483F4EC2299BDC500F2E90B /* PagingController.swift in Sources */,
 				0483F4EF2299DC3A00F2E90B /* ActionDelegateController.swift in Sources */,
@@ -590,6 +596,7 @@
 			baseConfigurationReference = 920EC0B6594518B5A287F4B2 /* Pods-SNAdapter_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 32M9XG9335;
 				INFOPLIST_FILE = SNAdapter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -605,6 +612,7 @@
 			baseConfigurationReference = 4AEF288FCBD84CDDEDCB61F0 /* Pods-SNAdapter_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 32M9XG9335;
 				INFOPLIST_FILE = SNAdapter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -619,6 +627,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D86FFCC1384DD94098027C2C /* Pods-SNAdapter_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 32M9XG9335;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -641,6 +650,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 623061151B9501D3AED32086 /* Pods-SNAdapter_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 32M9XG9335;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
