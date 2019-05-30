@@ -81,10 +81,68 @@ return [MyModel(title: "Item 1"), MyModel(title: "Item 2")]
 
 ```
 ## More Example 
-* [Pagination (Load More) Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/PagingController.swift)
-* [Sections Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/SectionController.swift)
-* [Actions Delegate Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/ActionDelegateController.swift)
 
+* [Pagination (Load More) Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/TableView/Paging)
+* [Sections Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/TableView/Sections)
+* [Actions Delegate Example](https://github.com/ahmedAlmasri/SNAdapter/blob/master/Example/SNAdapter/TableView/ActionDelegate)
+
+
+# CollectionView 
+
+
+
+**Step 1**:  declare new `UICollectionViewCell`  inherent form `SNCellable`
+
+```swift
+
+class MyCell: UICollectionViewCell, SNCellable {
+
+ @IBOutlet weak var titleLabel: UILabel!
+ 
+func configure(_ object: SNCellableModel?) {
+guard let myModel = object as? MyModel else { return }
+
+  titleLabel.text = myModel.title
+}
+
+}
+
+```
+**Step 2**: Take a reference to `SNCollectionViewSection`  and `SNCollectionViewAdapter` into your controller.
+
+```swift
+private var mySection: SNCollectionViewSection<MyModel, MyCell>!
+private var myAdapter: SNCollectionViewAdapter!
+```
+**Step 3**: Initialize the `SNCollectionViewSection`  and `SNCollectionViewAdapter` in your viewDidLoad .
+
+```swift
+override func viewDidLoad() {
+super.viewDidLoad()
+///....
+
+// MARK: - call setup section
+
+setupMySection()
+
+///...
+}
+
+private func setupMySection() {
+
+mySection = SNCollectionViewSection<MyModel, MyCell>(items: getMyListData())
+myAdapter = SNCollectionViewAdapter(sections: [mySection])
+myCollectionView.setAdapter(myAdapter)
+
+}
+
+private func getMyListData() -> [MyModel] {
+
+return [MyModel(title: "Item 1"), MyModel(title: "Item 2")]
+
+}
+
+```
 ## Requirements
 * Swift 4.2+
 * Xcode 10.0+
