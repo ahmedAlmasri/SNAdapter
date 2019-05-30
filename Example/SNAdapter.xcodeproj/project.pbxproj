@@ -15,6 +15,7 @@
 		0483F4EC2299BDC500F2E90B /* PagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4EB2299BDC500F2E90B /* PagingController.swift */; };
 		0483F4EF2299DC3A00F2E90B /* ActionDelegateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4EE2299DC3A00F2E90B /* ActionDelegateController.swift */; };
 		0483F4F12299DCFD00F2E90B /* ActionDelegateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4F02299DCFD00F2E90B /* ActionDelegateCell.swift */; };
+		0483F4FF22A0743B00F2E90B /* BasicCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0483F4FE22A0743B00F2E90B /* BasicCollectionController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		0483F4EB2299BDC500F2E90B /* PagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingController.swift; sourceTree = "<group>"; };
 		0483F4EE2299DC3A00F2E90B /* ActionDelegateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDelegateController.swift; sourceTree = "<group>"; };
 		0483F4F02299DCFD00F2E90B /* ActionDelegateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDelegateCell.swift; sourceTree = "<group>"; };
+		0483F4FE22A0743B00F2E90B /* BasicCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCollectionController.swift; sourceTree = "<group>"; };
 		4AEF288FCBD84CDDEDCB61F0 /* Pods-SNAdapter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNAdapter_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNAdapter_Example/Pods-SNAdapter_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4C2373ECF90057050B089B01 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SNAdapter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNAdapter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,7 @@
 				0483F4E12298BD7A00F2E90B /* BasicCell.swift */,
 			);
 			name = Basic;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		0483F4E32299804E00F2E90B /* Sections */ = {
@@ -123,6 +126,7 @@
 				0483F4E92299BD7100F2E90B /* SectionHeaderCell.swift */,
 			);
 			name = Sections;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		0483F4E62299BD4500F2E90B /* Paging */ = {
@@ -131,6 +135,7 @@
 				0483F4EB2299BDC500F2E90B /* PagingController.swift */,
 			);
 			name = Paging;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		0483F4ED2299DC1A00F2E90B /* ActionDelegate */ = {
@@ -140,6 +145,34 @@
 				0483F4F02299DCFD00F2E90B /* ActionDelegateCell.swift */,
 			);
 			name = ActionDelegate;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		0483F4FB22A0736A00F2E90B /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				0483F4FD22A073F800F2E90B /* Basic */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		0483F4FC22A0737700F2E90B /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				0483F4ED2299DC1A00F2E90B /* ActionDelegate */,
+				0483F4E62299BD4500F2E90B /* Paging */,
+				0483F4E32299804E00F2E90B /* Sections */,
+				0483F4DE2298BD5100F2E90B /* Basic */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		0483F4FD22A073F800F2E90B /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				0483F4FE22A0743B00F2E90B /* BasicCollectionController.swift */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -166,10 +199,8 @@
 		607FACD21AFB9204008FA782 /* Example for SNAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				0483F4ED2299DC1A00F2E90B /* ActionDelegate */,
-				0483F4E62299BD4500F2E90B /* Paging */,
-				0483F4E32299804E00F2E90B /* Sections */,
-				0483F4DE2298BD5100F2E90B /* Basic */,
+				0483F4FC22A0737700F2E90B /* TableView */,
+				0483F4FB22A0736A00F2E90B /* CollectionView */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -391,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0483F4FF22A0743B00F2E90B /* BasicCollectionController.swift in Sources */,
 				0483F4E52299807600F2E90B /* SectionController.swift in Sources */,
 				0483F4E22298BD7A00F2E90B /* BasicCell.swift in Sources */,
 				0483F4F12299DCFD00F2E90B /* ActionDelegateCell.swift in Sources */,

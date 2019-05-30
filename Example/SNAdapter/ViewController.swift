@@ -13,12 +13,13 @@ enum Actions: Int {
     case sectionTableView
     case pagingTableView
     case delegateTableView
+    case basicCollectionView
     case sectionCollectionView
     case pagingCollectionView
     case delegateCollectionView
 }
 
-class ViewController: UIViewController {
+class BasicController: UIViewController {
 
     @IBOutlet weak var basicTableView: UITableView!
     
@@ -58,6 +59,10 @@ class ViewController: UIViewController {
             let actionDelegateController = storyboard?.instantiateViewController(withIdentifier: "ActionDelegateController")
             self.navigationController?.pushViewController(actionDelegateController!, animated: true)
 
+        case .basicCollectionView:
+            let basicCollectionController = storyboard?.instantiateViewController(withIdentifier: "BasicCollectionController")
+            self.navigationController?.pushViewController(basicCollectionController!, animated: true)
+            
         @unknown default:
             break
         }
@@ -65,7 +70,7 @@ class ViewController: UIViewController {
 
    private func getData() -> [BasicModel] {
 
-    return [BasicModel(title: "Sections TableView"), BasicModel(title: "Paging TableView"), BasicModel(title: "Action delegate TableView"), BasicModel(title: "Header CollectionView"), BasicModel(title: "Paging CollectionView"), BasicModel(title: "Action delegate CollectionView")]
+    return [BasicModel(title: "Sections TableView"), BasicModel(title: "Paging TableView"), BasicModel(title: "Action delegate TableView"), BasicModel(title: "Basic CollectionView"), BasicModel(title: "Header CollectionView"), BasicModel(title: "Paging CollectionView"), BasicModel(title: "Action delegate CollectionView")]
     }
     
  
