@@ -14,7 +14,7 @@ enum Actions: Int {
     case pagingTableView
     case delegateTableView
     case basicCollectionView
-    case sectionCollectionView
+    case headerCollectionView
     case pagingCollectionView
     case delegateCollectionView
 }
@@ -60,9 +60,11 @@ class BasicController: UIViewController {
             self.navigationController?.pushViewController(actionDelegateController!, animated: true)
 
         case .basicCollectionView:
-            let basicCollectionController = storyboard?.instantiateViewController(withIdentifier: "BasicCollectionController")
+            let basicCollectionController = storyboard?.instantiateViewController(withIdentifier: "HeaderCollectionController")
             self.navigationController?.pushViewController(basicCollectionController!, animated: true)
-            
+        case .headerCollectionView:
+            let headerCollectionController = storyboard?.instantiateViewController(withIdentifier: "HeaderCollectionController")
+            self.navigationController?.pushViewController(headerCollectionController!, animated: true)
         @unknown default:
             break
         }

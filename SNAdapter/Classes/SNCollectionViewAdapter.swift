@@ -20,7 +20,7 @@ public struct SNCollectionReusableViewConfig {
     var heightReusableView: CGFloat
     var model: [SNCellableModel?]?
     
-   public init(cell: SNCellable.Type, heightReusableView: CGFloat, model: [SNCellableModel?]? = nil, delegate: SNCellableDelegate? = nil) {
+    public init(cell: SNCellable.Type, heightReusableView: CGFloat, model: [SNCellableModel?]? = nil, delegate: SNCellableDelegate? = nil) {
         self.delegate = delegate
         self.cell = cell
         self.heightReusableView = heightReusableView
@@ -30,18 +30,18 @@ public struct SNCollectionReusableViewConfig {
 
 open class SNCollectionViewAdapter: NSObject {
     let sections: [SNConfigurableCollectionSection]
-    var collectionViewHeaderConfig: SNCollectionReusableViewConfig?
+    var collectionReusableViewConfig: SNCollectionReusableViewConfig?
     
-   public init(sections: [SNConfigurableCollectionSection], collectionViewHeaderConfig: SNCollectionReusableViewConfig? = nil ) {
+    public init(sections: [SNConfigurableCollectionSection], collectionReusableViewConfig: SNCollectionReusableViewConfig? = nil ) {
         self.sections = sections
-        self.collectionViewHeaderConfig = collectionViewHeaderConfig
+        self.collectionReusableViewConfig = collectionReusableViewConfig
     }
     
 }
 
 extension SNCollectionViewAdapter: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-   public func numberOfSections(in collectionView: UICollectionView) -> Int {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
     }
     
@@ -49,14 +49,14 @@ extension SNCollectionViewAdapter: UICollectionViewDelegate, UICollectionViewDat
         return sections[section].count
     }
     
-   public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = sections[indexPath.section]
         guard var cell = collectionView.dequeueReusableCell(withReuseIdentifier: section.identifier, for: indexPath) as? SNCellable & UICollectionViewCell else {
             return UICollectionViewCell()
         }
         cell.delegate = section.delegate
         cell.indexPath = indexPath
-      //  cell.itemCount = section.elements.count
+        //  cell.itemCount = section.elements.count
         cell.configure(section.elements[indexPath.row])
         
         return cell
@@ -74,6 +74,17 @@ extension SNCollectionViewAdapter: UICollectionViewDelegate, UICollectionViewDat
             section.loadMoreData()
         }
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        if let config = collectionReusableViewConfig {
+            
+            return CGSize(width: collectionView.frame.width, height: config.heightReusableView)
+        }
+        
+        return CGSize.zero
+    }
+    
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         let section = sections[section]
         
@@ -82,10 +93,6 @@ extension SNCollectionViewAdapter: UICollectionViewDelegate, UICollectionViewDat
             return CGSize(width: collectionView.frame.width, height: 50)
         }
         
-        if let config = collectionViewHeaderConfig {
-            
-            return CGSize(width: collectionView.frame.width, height: config.heightReusableView)
-        }
         
         return CGSize.zero
     }
@@ -101,29 +108,27 @@ extension SNCollectionViewAdapter: UICollectionViewDelegate, UICollectionViewDat
             }
         }
         
-        if let config = collectionViewHeaderConfig {
+        if let config = collectionReusableViewConfig {
             
-            if kind != UICollectionView.elementKindSectionHeader && kind != UICollectionView.elementKindSectionFooter {
-                return UICollectionReusableView()
-            }
-            guard var cell  = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "\(config.cell.self)", for: indexPath) as? SNCellable &
-                UICollectionReusableView else { return  UICollectionReusableView() }
-            
-            cell.delegate = config.delegate
-            cell.didMoveToWindow()
-            if let models = config.model {
-                if let model = models[indexPath.row] {
-                    cell.configure(model)
+            if kind == UICollectionView.elementKindSectionHeader {
+                
+                guard var cell  = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "\(config.cell.self)", for: indexPath) as? SNCellable &
+                    UICollectionReusableView else { return  UICollectionReusableView() }
+                
+                cell.delegate = config.delegate
+                cell.didMoveToWindow()
+                if let models = config.model {
+                    if let model = models[indexPath.row] {
+                        cell.configure(model)
+                    }
                 }
+                return cell
             }
-            return cell
-            
-        } else {
-            
-            return  UICollectionReusableView()
         }
         
+        return  UICollectionReusableView()
     }
+    
 }
 
 open class SNCollectionViewSection<Model: SNCellableModel, Cell>: SNConfigurableCollectionSection where Cell: UICollectionViewCell & SNCellable {
@@ -153,7 +158,7 @@ open class SNCollectionViewSection<Model: SNCellableModel, Cell>: SNConfigurable
         return items.count
     }
     
-   public init(items: [Model], withPager: Bool = false, delegate: SNCellableDelegate? = nil, isLastPage: Bool = false) {
+    public init(items: [Model], withPager: Bool = false, delegate: SNCellableDelegate? = nil, isLastPage: Bool = false) {
         self.items = items
         self.identifier = "\(Cell.self)"
         self.delegate = delegate
@@ -217,9 +222,9 @@ public extension UICollectionView {
         
         if isLatPage {
             
-           return UICollectionReusableView()
+            return UICollectionReusableView()
         }
         return reusableView
     }
-
+    
 }
