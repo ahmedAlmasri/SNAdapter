@@ -19,7 +19,7 @@ import SNAdapter
 # TableView 
 
 
-**Step 1**:  declare new class or struct  inherent form `SNCellableModel`
+**Step 1**:   declare a new class or struct conform from `SNCellableModel`
 
 ```swift
 
@@ -30,7 +30,7 @@ struct MyModel: SNCellableModel {
 
 ```
 
-**Step 2**:  declare new `UITableViewCell`  inherent form `SNCellable`
+**Step 2**:  declare a new `UITableViewCell`  conform from `SNCellable`
 
 ```swift
 
