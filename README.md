@@ -1,5 +1,7 @@
 <img src="https://github.com/ahmedalmasri/SNAdapter/blob/master/images/Banner.png?raw=true"></img>
 
+A declarative type-safe framework for building fast and flexible lists with Tables & Collections, No more delegates and datasource. Just a fully type-safe declarative content approach
+
 [![CI Status](https://img.shields.io/travis/ahmedAlmasri/SNAdapter.svg?style=flat)](https://travis-ci.org/ahmedAlmasri/SNAdapter)
 [![Version](https://img.shields.io/cocoapods/v/SNAdapter.svg?style=flat)](https://cocoapods.org/pods/SNAdapter)
 [![License](https://img.shields.io/cocoapods/l/SNAdapter.svg?style=flat)](https://cocoapods.org/pods/SNAdapter)
