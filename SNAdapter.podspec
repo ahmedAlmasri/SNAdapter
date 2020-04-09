@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SNAdapter'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = 'iOS swift tableview and collectionView Adapter, powered by generics and associated types.'
 
 
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'ahmedAlmasri' => 'ahmed.almasri@ymail.com' }
-  s.source           = { :git => 'https://github.com/ahmedAlmasri/SNAdapter.git', :tag => '0.0.1_beta' }
+  s.source           = { :git => 'https://github.com/ahmedAlmasri/SNAdapter.git' }
 
   s.ios.deployment_target = '10.0'
 
