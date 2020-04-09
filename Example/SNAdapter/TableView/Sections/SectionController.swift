@@ -13,7 +13,7 @@ import SNAdapter
 class SectionController: UIViewController {
     
     var sectionsTableView: UITableView!
-    var sections = [SNTableViewSection<BasicModel, BasicCell>]()
+    var sections = [SNTableViewSection<BasicModel>]()
     var sectionAdapter: SNTableViewAdapter!
     
     var dummyDataList = [SectionModel]()
@@ -32,7 +32,7 @@ class SectionController: UIViewController {
     private func setupSection() {
         for section in  getDummySectionData() {
            
-            let section = SNTableViewSection<BasicModel, BasicCell>(items: section.list)
+            let section = SNTableViewSection<BasicModel>(items: section.list)
            
             sections.append(section)
         }

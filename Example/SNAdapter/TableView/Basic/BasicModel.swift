@@ -10,6 +10,10 @@ import Foundation
 import SNAdapter
 
 struct BasicModel: SNCellableModel {
+	var cellIdentifier: String {
+		return "ActionDelegateCell"
+	}
+	
     
     let title: String
 }

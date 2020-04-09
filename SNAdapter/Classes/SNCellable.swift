@@ -7,7 +7,11 @@
 
 import Foundation
 
-public protocol SNCellableModel {}
+public protocol SNCellableModel {
+	
+	var cellIdentifier: String {get}
+
+}
 
 public protocol SNCellableDelegate: class {}
 

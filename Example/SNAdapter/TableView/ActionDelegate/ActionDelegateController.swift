@@ -14,7 +14,7 @@ class ActionDelegateController: UIViewController {
     
     @IBOutlet weak var actionTableView: UITableView!
     
-    var actionSection: SNTableViewSection<BasicModel, ActionDelegateCell>!
+    var actionSection: SNTableViewSection<BasicModel>!
     var actionAdapter: SNTableViewAdapter!
     
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class ActionDelegateController: UIViewController {
     
     private func setupSection() {
         
-        actionSection = SNTableViewSection<BasicModel, ActionDelegateCell>(items: getData(), delegate: self)
+        actionSection = SNTableViewSection<BasicModel>(items: getData(), delegate: self)
         actionAdapter = SNTableViewAdapter(sections: [actionSection])
         actionTableView.setAdapter(actionAdapter)
     }

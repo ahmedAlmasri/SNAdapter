@@ -23,7 +23,7 @@ class BasicController: UIViewController {
 
     @IBOutlet weak var basicTableView: UITableView!
     
-    var basicSection: SNTableViewSection<BasicModel, BasicCell>!
+    var basicSection: SNTableViewSection<BasicModel>!
     var basicAdapter: SNTableViewAdapter!
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class BasicController: UIViewController {
 
     private func setupSection() {
         
-        basicSection = SNTableViewSection<BasicModel, BasicCell>(items: getData())
+        basicSection = SNTableViewSection<BasicModel>(items: getData())
         
         basicSection.didSelect = { [weak self] _, indexPath in 
             self?.didSelect(at: indexPath)    
@@ -65,7 +65,7 @@ class BasicController: UIViewController {
         case .headerCollectionView:
             let headerCollectionController = storyboard?.instantiateViewController(withIdentifier: "HeaderCollectionController")
             self.navigationController?.pushViewController(headerCollectionController!, animated: true)
-        @unknown default:
+		 default:
             break
         }
     }

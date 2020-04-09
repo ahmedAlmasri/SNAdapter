@@ -10,6 +10,11 @@ import Foundation
 import SNAdapter
 
 struct SectionModel: SNCellableModel {
+	var cellIdentifier: String {
+		
+		return "BasicCell"
+	}
+	
     var title: String
     var list: [BasicModel]
 }

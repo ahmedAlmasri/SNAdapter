@@ -13,7 +13,7 @@ import SNAdapter
 class PagingController: UIViewController {
     var pagingTableView: UITableView!
     
-    var pagingSection: SNTableViewSection<BasicModel, BasicCell>!
+    var pagingSection: SNTableViewSection<BasicModel>!
     var pagingAdapter: SNTableViewAdapter!
     private var dummyList = [BasicModel]()
     private var pageNumber = 1
@@ -28,7 +28,7 @@ class PagingController: UIViewController {
     
     private func setupSection() {
         
-        pagingSection = SNTableViewSection<BasicModel, BasicCell>(items: getDummyData(), withPaging: true)
+        pagingSection = SNTableViewSection<BasicModel>(items: getDummyData(), withPaging: true)
         
         pagingSection.didLoadMore = {
             

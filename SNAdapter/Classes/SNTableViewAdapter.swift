@@ -46,10 +46,13 @@ extension SNTableViewAdapter: UITableViewDelegate, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = sections[indexPath.section]
-        guard var cell = tableView.dequeueReusableCell(withIdentifier: section.identifier) as? SNCellable & UITableViewCell else {
+		
+		let identifier = section.elements[indexPath.row].cellIdentifier
+		
+        guard var cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? SNCellable & UITableViewCell else {
             return UITableViewCell()
         }
-        cell.selectionStyle = .none
+       
         cell.delegate = section.delegate
         cell.indexPath = indexPath
         cell.configure(section.elements[indexPath.row])
@@ -72,7 +75,7 @@ extension SNTableViewAdapter: UITableViewDelegate, UITableViewDataSource {
             }
             cell.delegate = config.delegate
             cell.section = section
-            cell.configure(config.model[section])
+			cell.configure(config.model.isEmpty ? nil : config.model[section])
             
             return cell
         }
@@ -103,12 +106,12 @@ extension SNTableViewAdapter: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-open class SNTableViewSection<Model: SNCellableModel, Cell>: SNConfigurableSection where Cell: UITableViewCell & SNCellable {
+open class SNTableViewSection<Model: SNCellableModel>: SNConfigurableSection {
     
    public typealias ModelCellClosure = (Model, IndexPath) -> Void
    public typealias LoadMoreClosure = () -> Void
     
-    public var identifier: String
+    public var identifier: String = ""
     public var isLastPage: Bool
     private var items: [Model]
     weak public var delegate: SNCellableDelegate?
@@ -127,7 +130,6 @@ open class SNTableViewSection<Model: SNCellableModel, Cell>: SNConfigurableSecti
    public init(items: [Model], delegate: SNCellableDelegate? = nil, withPaging: Bool = false) {
         
         self.items = items
-        self.identifier =  Cell.identifier == nil ? "\(Cell.self)" : Cell.identifier!
         self.delegate = delegate
         self.isLastPage = !withPaging
     }
